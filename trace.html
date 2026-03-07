@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <title>Konverter tegning til SVG</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+    h1 { font-size: 1.25rem; }
+    .step { margin: 1.5rem 0; padding: 1rem; background: #f5f0e8; border-radius: 8px; }
+    #result { margin-top: 1rem; }
+    #result svg { max-width: 200px; height: auto; display: block; margin: 1rem 0; }
+    a.download { display: inline-block; margin-top: 0.5rem; padding: 0.5rem 1rem; background: #1e3a5f; color: white; text-decoration: none; border-radius: 6px; }
+    a.download:hover { opacity: 0.9; }
+    .loading { color: #666; }
+  </style>
+</head>
+<body>
+  <h1>Konverter «Til nettside» til vektor-SVG</h1>
+  <div class="step">
+    <p class="loading" id="status">Laster bildet og sporer til SVG …</p>
+    <div id="result"></div>
+    <a href="#" class="download" id="download" style="display: none;">Last ned til-nettside.svg</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/imagetracerjs@1.2.6/imagetracer_v1.2.6.js"></script>
+  <script>
+    (function() {
+      var img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = function() {
+        var canvas = document.createElement('canvas');
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        var imagedata = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+        var options = {
+          numberofcolors: 2,
+          scale: 1,
+          linefilter: true,
+          ltres: 0.5,
+          qtres: 0.5
+        };
+        var svgstr = ImageTracer.imagedataToSVG(imagedata, options);
+
+        document.getElementById('status').textContent = 'Ferdig! Forhåndsvisning under. Last ned SVG-filen og lagre den i prosjektmappen som «til-nettside.svg».';
+        document.getElementById('result').innerHTML = svgstr;
+
+        var svgBlob = new Blob([svgstr], { type: 'image/svg+xml' });
+        var url = URL.createObjectURL(svgBlob);
+        var a = document.getElementById('download');
+        a.href = url;
+        a.download = 'til-nettside.svg';
+        a.style.display = 'inline-block';
+      };
+      img.onerror = function() {
+        document.getElementById('status').innerHTML = 'Kunne ikke laste bildet. Åpne denne siden via en lokal server (f.eks. <code>npm start</code>) fra prosjektmappen, slik at «Til nettside.jpg» ligger i samme mappe.';
+      };
+      img.src = 'Til nettside.jpg';
+    })();
+  </script>
+</body>
+</html>
