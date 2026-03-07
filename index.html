@@ -52,20 +52,12 @@
       font-style: normal;
       font-display: swap;
     }
-    /* Hero – små selvstendige bilder som flyter rolig horisontalt */
+    /* Hero – små selvstendige bilder som flyter rolig horisontalt (uendelig loop) */
     .hero-slideshow {
       --slide-duration: 50s;
       --slide-width: 160px;
       --slide-height: 200px;
       --slide-gap: 12px;
-    }
-    .hero-slideshow:hover .hero-slide-track {
-      animation-duration: 85s;
-    }
-    @media (hover: none) {
-      .hero-slideshow:hover .hero-slide-track {
-        animation-duration: var(--slide-duration);
-      }
     }
     .hero-slide-track {
       display: flex;
@@ -73,10 +65,11 @@
       gap: var(--slide-gap);
       width: max-content;
       animation: hero-flow var(--slide-duration) linear infinite;
+      will-change: transform;
     }
     @keyframes hero-flow {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-860px); }
+      100% { transform: translateX(-848px); }
     }
     .hero-slide {
       flex: 0 0 var(--slide-width);
@@ -143,7 +136,7 @@
     <a href="#bilder" class="text-xs sm:text-sm font-medium tracking-wide uppercase hover:border-b-2 border-navy/50 pb-0.5">Bilder</a>
   </nav>
 
-  <!-- Hero / Hjem – små bilder som flyter rolig horisontalt -->
+  <!-- Hero / Hjem – små bilder som flyter rolig horisontalt (uendelig) -->
   <section id="hjem" class="hero-slideshow w-full overflow-hidden py-8 sm:py-10 md:py-12">
     <div class="hero-slide-track">
       <div class="hero-slide"><img src="IMG_4836.jpeg" alt="Pernille og Håkon" loading="eager" /></div>
@@ -151,6 +144,11 @@
       <div class="hero-slide"><img src="IMG_7477.jpeg" alt="Pernille og Håkon" loading="lazy" /></div>
       <div class="hero-slide"><img src="IMG_9368_jpg.jpeg" alt="Pernille og Håkon" loading="lazy" /></div>
       <div class="hero-slide"><img src="IMG_9371.jpeg" alt="Pernille og Håkon" loading="lazy" /></div>
+      <div class="hero-slide"><img src="IMG_4836.jpeg" alt="" loading="lazy" aria-hidden="true" /></div>
+      <div class="hero-slide"><img src="IMG_6141.jpeg" alt="" loading="lazy" aria-hidden="true" /></div>
+      <div class="hero-slide"><img src="IMG_7477.jpeg" alt="" loading="lazy" aria-hidden="true" /></div>
+      <div class="hero-slide"><img src="IMG_9368_jpg.jpeg" alt="" loading="lazy" aria-hidden="true" /></div>
+      <div class="hero-slide"><img src="IMG_9371.jpeg" alt="" loading="lazy" aria-hidden="true" /></div>
       <div class="hero-slide"><img src="IMG_4836.jpeg" alt="" loading="lazy" aria-hidden="true" /></div>
       <div class="hero-slide"><img src="IMG_6141.jpeg" alt="" loading="lazy" aria-hidden="true" /></div>
       <div class="hero-slide"><img src="IMG_7477.jpeg" alt="" loading="lazy" aria-hidden="true" /></div>
