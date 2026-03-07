@@ -52,6 +52,42 @@
       font-style: normal;
       font-display: swap;
     }
+    /* Hero slideshow – rolig sidelengs flyt */
+    .hero-slideshow {
+      --slide-duration: 45s;
+    }
+    .hero-slideshow:hover .hero-slide-track {
+      animation-duration: 75s;
+    }
+    @media (hover: none) {
+      .hero-slideshow:hover .hero-slide-track {
+        animation-duration: var(--slide-duration);
+      }
+    }
+    .hero-slide-track {
+      animation: hero-flow var(--slide-duration) linear infinite;
+    }
+    @keyframes hero-flow {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .hero-slide {
+      flex: 0 0 50%;
+      padding: 0 0.25rem;
+      box-sizing: border-box;
+    }
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      transition: transform 0.6s ease;
+    }
+    @media (hover: hover) {
+      .hero-slide:hover img {
+        transform: scale(1.08);
+      }
+    }
   </style>
 </head>
 <body class="bg-sand text-navy font-serif antialiased">
@@ -96,10 +132,21 @@
     <a href="#bilder" class="text-xs sm:text-sm font-medium tracking-wide uppercase hover:border-b-2 border-navy/50 pb-0.5">Bilder</a>
   </nav>
 
-  <!-- Hero / Hjem -->
-  <section id="hjem" class="max-w-5xl mx-auto px-4 py-6 sm:py-8 md:py-12 w-full box-border">
+  <!-- Hero / Hjem – slideshow med de fem bildene -->
+  <section id="hjem" class="hero-slideshow max-w-5xl mx-auto px-4 py-6 sm:py-8 md:py-12 w-full box-border">
     <div class="aspect-[16/10] rounded-lg overflow-hidden bg-navy/10 w-full">
-      <img src="hero.png.JPG" alt="Kystlandskap" class="block w-full h-full object-cover max-w-full" loading="eager" />
+      <div class="hero-slide-track flex h-full w-[200%]" style="--slide-duration: 45s;">
+        <div class="hero-slide h-full"><img src="IMG_4836.jpeg" alt="Pernille og Håkon" loading="eager" /></div>
+        <div class="hero-slide h-full"><img src="IMG_6141.jpeg" alt="Pernille og Håkon" loading="lazy" /></div>
+        <div class="hero-slide h-full"><img src="IMG_7477.jpeg" alt="Pernille og Håkon" loading="lazy" /></div>
+        <div class="hero-slide h-full"><img src="IMG_9368_jpg.jpeg" alt="Pernille og Håkon" loading="lazy" /></div>
+        <div class="hero-slide h-full"><img src="IMG_9371.jpeg" alt="Pernille og Håkon" loading="lazy" /></div>
+        <div class="hero-slide h-full"><img src="IMG_4836.jpeg" alt="" loading="lazy" aria-hidden="true" /></div>
+        <div class="hero-slide h-full"><img src="IMG_6141.jpeg" alt="" loading="lazy" aria-hidden="true" /></div>
+        <div class="hero-slide h-full"><img src="IMG_7477.jpeg" alt="" loading="lazy" aria-hidden="true" /></div>
+        <div class="hero-slide h-full"><img src="IMG_9368_jpg.jpeg" alt="" loading="lazy" aria-hidden="true" /></div>
+        <div class="hero-slide h-full"><img src="IMG_9371.jpeg" alt="" loading="lazy" aria-hidden="true" /></div>
+      </div>
     </div>
   </section>
 
