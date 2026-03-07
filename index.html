@@ -7,7 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -15,6 +15,7 @@
           fontFamily: {
             serif: ['Cormorant Garamond', 'Georgia', 'serif'],
             sans: ['Source Sans 3', 'system-ui', 'sans-serif'],
+            script: ['Great Vibes', 'cursive'],
           },
           colors: {
             navy: '#1e3a5f',
@@ -45,7 +46,7 @@
             C 22 14 12 20 12 20 Z" />
         </svg>
       </div>
-      <h1 class="font-serif text-4xl md:text-5xl font-semibold tracking-wide uppercase">Pernille og Håkon</h1>
+      <h1 class="font-script text-4xl md:text-6xl font-normal tracking-wide normal-case text-navy">Pernille og Håkon</h1>
       <p class="mt-2 text-sm md:text-base font-medium tracking-widest uppercase text-navy/90">6. juni 2026</p>
       <p class="mt-1 text-sm tracking-widest uppercase text-navy/80" id="countdown">—</p>
     </div>
@@ -211,7 +212,7 @@
 
   <!-- Footer -->
   <footer class="py-8 text-center text-sm text-navy/60">
-    <p>Pernille og Håkon • 6. juni 2026</p>
+    <p><span class="font-script text-2xl text-navy/60">Pernille og Håkon</span> • 6. juni 2026</p>
   </footer>
 
   <script>
