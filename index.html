@@ -2,7 +2,7 @@
 <html lang="nb">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Pernille og Håkon – Bryllup</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,25 @@
     }
   </script>
   <style>
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      overflow-x: hidden;
+      max-width: 100vw;
+      width: 100%;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    #site-content {
+      width: 100%;
+      overflow-x: hidden;
+      min-height: 0;
+    }
     @font-face {
       font-family: 'Abramo Script';
       src: url('Abramo-Font/Abramo%20Script.otf') format('opentype');
@@ -39,9 +57,9 @@
 <body class="bg-sand text-navy font-serif antialiased">
 
   <!-- Passordport – vises inntil riktig passord er oppgitt -->
-  <div id="password-gate" class="min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-sand">
-    <div class="max-w-sm w-full text-center">
-      <img src="P%26H.png" alt="" class="w-20 h-auto mx-auto mb-6 object-contain" />
+  <div id="password-gate" class="min-h-screen min-h-[100dvh] flex flex-col items-center justify-center px-4 py-8 sm:py-12 bg-sand w-full box-border overflow-x-hidden">
+    <div class="max-w-sm w-full max-w-[calc(100vw-2rem)] text-center">
+      <img src="P%26H.png" alt="" class="w-20 h-auto max-w-full mx-auto mb-6 object-contain" />
       <h2 class="font-script text-3xl text-navy mb-2">Pernille og Håkon</h2>
       <p class="text-sm text-navy/70 uppercase tracking-widest mb-8">6. juni 2026</p>
       <form id="password-form" class="space-y-4">
@@ -56,22 +74,22 @@
   </div>
 
   <!-- Siden – skjules inntil passord er godkjent -->
-  <div id="site-content" class="hidden">
+  <div id="site-content" class="hidden w-full overflow-x-hidden">
 
   <!-- Header -->
-  <header class="pt-10 pb-6 px-4 text-center">
-    <div class="max-w-2xl mx-auto">
+  <header class="pt-6 pb-4 px-4 text-center sm:pt-10 sm:pb-6">
+    <div class="max-w-2xl mx-auto w-full box-border">
       <!-- Figur/symbol i header -->
-      <div class="flex justify-center mb-4">
-        <img src="P%26H.png" alt="Pernille og Håkon" class="w-24 h-auto md:w-32 max-h-24 md:max-h-32 object-contain" loading="eager" />
+      <div class="flex justify-center mb-3 sm:mb-4">
+        <img src="P%26H.png" alt="Pernille og Håkon" class="w-20 h-auto max-h-20 sm:w-24 sm:max-h-24 md:w-32 md:max-h-32 object-contain" loading="eager" />
       </div>
-      <h1 class="font-script text-4xl md:text-6xl font-normal tracking-wide normal-case text-navy">Pernille og Håkon</h1>
+      <h1 class="font-script text-3xl sm:text-4xl md:text-6xl font-normal tracking-wide normal-case text-navy break-words">Pernille og Håkon</h1>
       <p class="mt-2 text-sm md:text-base font-medium tracking-widest uppercase text-navy/90">6. juni 2026</p>
     </div>
   </header>
 
   <!-- Navigation -->
-  <nav class="flex flex-wrap justify-center gap-6 md:gap-8 py-4 px-4 border-y border-navy/10">
+  <nav class="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 py-3 sm:py-4 px-4 border-y border-navy/10 w-full box-border">
     <a href="#hjem" class="text-sm font-medium tracking-wide uppercase border-b-2 border-navy pb-0.5">Hjem</a>
     <a href="#praktisk" class="text-sm font-medium tracking-wide uppercase hover:border-b-2 border-navy/50 pb-0.5">Praktisk info</a>
     <a href="#matpreferanser" class="text-sm font-medium tracking-wide uppercase hover:border-b-2 border-navy/50 pb-0.5">Matpreferanser</a>
@@ -79,14 +97,14 @@
   </nav>
 
   <!-- Hero / Hjem -->
-  <section id="hjem" class="max-w-5xl mx-auto px-4 py-8 md:py-12">
-    <div class="aspect-[16/10] rounded-lg overflow-hidden bg-navy/10">
-      <img src="hero.png.JPG" alt="Kystlandskap" class="block w-full h-full object-cover" loading="eager" />
+  <section id="hjem" class="max-w-5xl mx-auto px-4 py-6 sm:py-8 md:py-12 w-full box-border">
+    <div class="aspect-[16/10] rounded-lg overflow-hidden bg-navy/10 w-full">
+      <img src="hero.png.JPG" alt="Kystlandskap" class="block w-full h-full object-cover max-w-full" loading="eager" />
     </div>
   </section>
 
   <!-- Praktisk info -->
-  <section id="praktisk" class="max-w-3xl mx-auto px-4 py-16">
+  <section id="praktisk" class="max-w-3xl mx-auto px-4 py-10 sm:py-16 w-full box-border">
     <h2 class="font-serif text-2xl md:text-3xl font-semibold text-center uppercase tracking-wide mb-12">Praktisk info</h2>
 
     <div class="space-y-14">
@@ -141,9 +159,9 @@
   </section>
 
   <!-- Matpreferanser – Tally-skjema. I Tally: Share → Embed → kopier embed-URL (tally.so/embed/...) og lim inn under. -->
-  <section id="matpreferanser" class="max-w-2xl mx-auto px-4 py-16">
+  <section id="matpreferanser" class="max-w-2xl mx-auto px-4 py-10 sm:py-16 w-full box-border">
     <h2 class="font-serif text-2xl md:text-3xl font-semibold text-center uppercase tracking-wide mb-2">Matpreferanser</h2>
-    <p class="text-center text-navy/80 text-sm mb-10">Spør deg selv: Gjelder dette meg?</p>
+    <p class="text-center text-navy/80 text-sm mb-6 sm:mb-10">Spør deg selv: Gjelder dette meg?</p>
 
     <iframe
       data-tally-src="https://tally.so/embed/81kZLP?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
@@ -152,14 +170,14 @@
       frameborder="0"
       marginheight="0"
       marginwidth="0"
-      class="rounded-lg border-0 min-h-[500px]"
+      class="rounded-lg border-0 min-h-[400px] sm:min-h-[500px] w-full max-w-full"
       title="Matpreferanser-skjema">Laster skjema …</iframe>
   </section>
   <script async src="https://tally.so/widgets/embed.js"></script>
 
   <!-- Bilder -->
-  <section id="bilder" class="bg-navy/5 py-16">
-    <div class="max-w-3xl mx-auto px-4 text-center">
+  <section id="bilder" class="bg-navy/5 py-10 sm:py-16 w-full overflow-x-hidden">
+    <div class="max-w-3xl mx-auto px-4 text-center w-full box-border">
       <h2 class="font-serif text-2xl md:text-3xl font-semibold uppercase tracking-wide mb-2">Bilder fra festen</h2>
       <p class="text-navy/80 text-sm mb-8">Del bilder fra seremoni og fest. Lenke eller opplasting kan legges til her.</p>
       <div class="border-2 border-dashed border-navy/30 rounded-lg py-12 px-4 text-navy/70">
