@@ -7,7 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -15,7 +15,7 @@
           fontFamily: {
             serif: ['Cormorant Garamond', 'Georgia', 'serif'],
             sans: ['Source Sans 3', 'system-ui', 'sans-serif'],
-            script: ['Great Vibes', 'cursive'],
+            script: ['Abramo Script', 'Great Vibes', 'cursive'],
           },
           colors: {
             navy: '#1e3a5f',
@@ -27,6 +27,13 @@
   </script>
   <style>
     html { scroll-behavior: smooth; }
+    @font-face {
+      font-family: 'Abramo Script';
+      src: url('fonts/AbramoScript.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
   </style>
 </head>
 <body class="bg-sand text-navy font-serif antialiased">
