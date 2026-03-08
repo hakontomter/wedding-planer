@@ -92,22 +92,25 @@
       object-fit: cover;
       display: block;
     }
-    /* Mobil: touch-scroll sidelengs, ingen auto-animasjon */
+    .hero-scroll-wrap {
+      overflow: hidden;
+    }
+    /* Mobil: scroll-wrapper får touch-scroll, track animerer ikke */
     @media (max-width: 768px) {
-      .hero-slideshow {
-        overflow-x: auto !important;
-        overflow-y: hidden !important;
+      .hero-scroll-wrap {
+        overflow-x: scroll !important;
+        overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
-        scroll-behavior: auto;
         touch-action: pan-x;
+        width: 100%;
         padding-left: 1rem;
         padding-right: 1rem;
       }
-      .hero-slideshow::-webkit-scrollbar {
+      .hero-scroll-wrap::-webkit-scrollbar {
         display: none;
       }
-      .hero-slideshow {
+      .hero-scroll-wrap {
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
@@ -118,7 +121,6 @@
       }
       .hero-slide {
         scroll-snap-align: center;
-        scroll-snap-stop: normal;
         flex-shrink: 0;
       }
     }
@@ -166,8 +168,9 @@
     <a href="#bilder" class="nav-link text-xs sm:text-sm font-medium tracking-wide uppercase hover:border-b-2 border-navy/50 pb-0.5">Bilder</a>
   </nav>
 
-  <!-- Hero / Hjem – små bilder som flyter rolig horisontalt (uendelig) -->
+  <!-- Hero / Hjem – små bilder som flyter rolig horisontalt (uendelig); på mobil: sveip for å bla -->
   <section id="hjem" class="hero-slideshow w-full py-8 sm:py-10 md:py-12 md:overflow-hidden">
+    <div class="hero-scroll-wrap">
     <div class="hero-slide-track">
       <div class="hero-slide"><img src="IMG_4836.jpeg" alt="Pernille og Håkon" loading="eager" /></div>
       <div class="hero-slide"><img src="IMG_6141.jpeg" alt="Pernille og Håkon" loading="lazy" /></div>
@@ -208,6 +211,7 @@
       <div class="hero-slide"><img src="IMG_7665_jpg.jpeg" alt="" loading="lazy" aria-hidden="true" /></div>
       <div class="hero-slide"><img src="IMG_7120.jpeg" alt="" loading="lazy" aria-hidden="true" /></div>
       <div class="hero-slide"><img src="IMG_8270.jpeg" alt="" loading="lazy" aria-hidden="true" /></div>
+    </div>
     </div>
   </section>
 
