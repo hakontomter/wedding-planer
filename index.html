@@ -92,6 +92,34 @@
       object-fit: cover;
       display: block;
     }
+    /* Mobil: touch-scroll sidelengs, ingen auto-animasjon – swipe og trykk for å stoppe */
+    @media (max-width: 768px) {
+      .hero-slideshow {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .hero-slideshow::-webkit-scrollbar {
+        display: none;
+      }
+      .hero-slideshow {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .hero-slide-track {
+        animation: none;
+        padding-right: 1rem;
+      }
+      .hero-slide {
+        scroll-snap-align: center;
+        scroll-snap-stop: normal;
+        flex-shrink: 0;
+      }
+    }
   </style>
 </head>
 <body class="bg-sand text-navy font-serif antialiased">
