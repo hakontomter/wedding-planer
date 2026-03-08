@@ -92,14 +92,15 @@
       object-fit: cover;
       display: block;
     }
-    /* Mobil: touch-scroll sidelengs, ingen auto-animasjon – swipe og trykk for å stoppe */
+    /* Mobil: touch-scroll sidelengs, ingen auto-animasjon */
     @media (max-width: 768px) {
       .hero-slideshow {
-        overflow-x: auto;
-        overflow-y: hidden;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
+        scroll-behavior: auto;
+        touch-action: pan-x;
         padding-left: 1rem;
         padding-right: 1rem;
       }
@@ -111,7 +112,8 @@
         scrollbar-width: none;
       }
       .hero-slide-track {
-        animation: none;
+        animation: none !important;
+        will-change: auto;
         padding-right: 1rem;
       }
       .hero-slide {
@@ -165,7 +167,7 @@
   </nav>
 
   <!-- Hero / Hjem – små bilder som flyter rolig horisontalt (uendelig) -->
-  <section id="hjem" class="hero-slideshow w-full overflow-hidden py-8 sm:py-10 md:py-12">
+  <section id="hjem" class="hero-slideshow w-full py-8 sm:py-10 md:py-12 md:overflow-hidden">
     <div class="hero-slide-track">
       <div class="hero-slide"><img src="IMG_4836.jpeg" alt="Pernille og Håkon" loading="eager" /></div>
       <div class="hero-slide"><img src="IMG_6141.jpeg" alt="Pernille og Håkon" loading="lazy" /></div>
