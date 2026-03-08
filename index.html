@@ -287,6 +287,8 @@
       function showContent() {
         gate.classList.add('hidden');
         content.classList.remove('hidden');
+        window.scrollTo(0, 0);
+        requestAnimationFrame(function() { window.scrollTo(0, 0); });
       }
 
       function showGate() {
